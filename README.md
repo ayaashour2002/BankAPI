@@ -145,13 +145,15 @@ Authorization: Bearer {token}
 ## 📸 Screenshots
 
 ### 🔐 Swagger
-![Login](./screenshots/swagger.png)
+![Swagger](./screenshots/swagger.png)
 
 ### 🔐 SQL
-![Login](./screenshots/sql.png)
+![SQL](./screenshots/users.png)
+### 🔐 SQL
+![SQL](./screenshots/accounts.png)
 
 ### 🔐 Login Page
-![Login](./screenshots/lhome.png)
+![Login](./screenshots/home.png)
 
 ### 📊 Dashboard
 ![Dashboard](./screenshots/dashboard.png)
@@ -160,7 +162,7 @@ Authorization: Bearer {token}
 ![Transfer](./screenshots/transfer.png)
 
 ### 📋 Transaction History
-![Transactions](./screenshots/transactions.png)
+![Transactions](./screenshots/transaction.png)
 
 > 💡 Add your screenshots to a `/screenshots` folder in the root of the repository.
 
