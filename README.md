@@ -145,7 +145,7 @@ Authorization: Bearer {token}
 ## 📸 Screenshots
 
 ### 🔐 Swagger
-![Swagger](./screenshots/swagger.png)
+![Swagger](./screenshots/sql1.png)
 
 ### 🔐 SQL
 ![SQL](./screenshots/users.png)
@@ -154,6 +154,8 @@ Authorization: Bearer {token}
 
 ### 🔐 Login Page
 ![Login](./screenshots/home.png)
+### 🔐 Register Page
+![Register](./screenshots/register.png)
 
 ### 📊 Dashboard
 ![Dashboard](./screenshots/dashboard.png)
