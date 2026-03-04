@@ -83,6 +83,35 @@ Swagger UI at: `http://localhost:5142/swagger`
 
 ---
 
+### 🎨 Frontend Setup (BankClient)
+
+**1. Navigate to the frontend folder**
+```bash
+cd ../BankClient
+```
+
+**2. Install dependencies**
+```bash
+npm install
+```
+
+**3. Update API URL in services**
+
+Edit these 3 files and replace the port with your actual API port:
+- `src/app/services/auth.service.ts`
+- `src/app/services/account.service.ts`
+- `src/app/services/transaction.service.ts`
+
+```typescript
+private apiUrl = 'http://localhost:5142/api/...';
+```
+
+**4. Run the Angular app**
+```bash
+ng serve
+```
+
+---
 ## 📡 API Endpoints
 
 ### 🔐 Auth
