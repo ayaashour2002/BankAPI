@@ -1,0 +1,67 @@
+<div class="page-container">
+  <div class="page-header">
+    <button mat-icon-button routerLink="/dashboard"><mat-icon>arrow_back</mat-icon></button>
+    <h2>Transfer Money</h2>
+  </div>
+
+  <mat-card class="transfer-card">
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>From Account</mat-label>
+          <mat-select formControlName="fromAccountId">
+            @for (acc of accounts; track acc.id) {
+              <mat-option [value]="acc.id">
+                {{ acc.accountNumber }} — {{ acc.balance | currency: 'EGP' : 'symbol' : '1.2-2' }}
+              </mat-option>
+            }
+          </mat-select>
+          <mat-icon matSuffix>account_balance_wallet</mat-icon>
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+        @if (form.get('fromAccountId')?.value) {
+          <div class="balance-hint">
+            Available:
+            <strong>{{ getSelectedBalance() | currency: 'EGP' : 'symbol' : '1.2-2' }}</strong>
+          </div>
+        }
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>To Account Number</mat-label>
+          <input matInput formControlName="toAccountNumber" placeholder="EG123456789" />
+          <mat-icon matSuffix>send</mat-icon>
+          <mat-error>Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Amount (EGP)</mat-label>
+          <input matInput formControlName="amount" type="number" min="1" />
+          <mat-icon matSuffix>payments</mat-icon>
+          <mat-error *ngIf="form.get('amount')?.hasError('min')">Must be greater than 0</mat-error>
+          <mat-error *ngIf="form.get('amount')?.hasError('required')">Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description (optional)</mat-label>
+          <input matInput formControlName="description" placeholder="e.g. Rent payment" />
+          <mat-icon matSuffix>notes</mat-icon>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="full-width submit-btn"
+          [disabled]="loading || form.invalid"
+        >
+          @if (loading) {
+            <mat-spinner diameter="20" />
+          } @else {
+            <!-- <mat-icon>send</mat-icon> Transfer Now -->
+          }
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

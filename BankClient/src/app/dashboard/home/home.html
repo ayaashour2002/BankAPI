@@ -1,0 +1,73 @@
+@if (loading) {
+  <div class="loading-center"><mat-spinner /></div>
+} @else {
+  <div class="dashboard-container">
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+      <div>
+        <h2>Welcome back, {{ user?.fullName }} 👋</h2>
+        <p>Here's your financial overview</p>
+      </div>
+      <div class="total-balance">
+        <span class="label">Total Balance</span>
+        <span class="amount">{{ getTotalBalance() | currency: 'EGP' : 'symbol' : '1.2-2' }}</span>
+      </div>
+    </div>
+
+    <!-- Accounts -->
+    <h3 class="section-title">My Accounts</h3>
+    <div class="accounts-grid">
+      @for (acc of accounts; track acc.id) {
+        <mat-card class="account-card">
+          <mat-card-content>
+            <div class="account-header">
+              <mat-icon>credit_card</mat-icon>
+              <span class="account-type">{{ acc.type }}</span>
+            </div>
+            <div class="account-number">{{ acc.accountNumber }}</div>
+            <div class="account-balance">
+              {{ acc.balance | currency: 'EGP' : 'symbol' : '1.2-2' }}
+            </div>
+            <div class="account-date">Since {{ acc.createdAt | date: 'mediumDate' }}</div>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+
+    <!-- Quick Actions -->
+    <h3 class="section-title">Quick Actions</h3>
+    <div class="actions-row">
+      <button mat-raised-button color="primary" routerLink="/dashboard/transfer">
+        <mat-icon>send</mat-icon> Transfer
+      </button>
+      <button mat-raised-button color="accent" routerLink="/dashboard/transactions">
+        <mat-icon>history</mat-icon> Transactions
+      </button>
+    </div>
+
+    <!-- Recent Transactions -->
+    <h3 class="section-title">Recent Transactions</h3>
+    <mat-card class="transactions-card">
+      <mat-list>
+        @for (tx of recentTransactions; track tx.id) {
+          <mat-list-item class="tx-item">
+            <mat-icon matListItemIcon [class]="tx.direction">
+              {{ tx.direction === 'in' ? 'arrow_downward' : 'arrow_upward' }}
+            </mat-icon>
+            <span matListItemTitle>{{ tx.description || tx.type }}</span>
+            <span matListItemLine>{{ tx.date | date: 'short' }}</span>
+            <span class="tx-amount" [class]="tx.direction">
+              {{ tx.direction === 'in' ? '+' : '-'
+              }}{{ tx.amount | currency: 'EGP' : 'symbol' : '1.2-2' }}
+            </span>
+          </mat-list-item>
+        } @empty {
+          <div class="empty-state">
+            <mat-icon>receipt_long</mat-icon>
+            <p>No transactions yet</p>
+          </div>
+        }
+      </mat-list>
+    </mat-card>
+  </div>
+}

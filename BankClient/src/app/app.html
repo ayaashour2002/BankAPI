@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" *ngIf="isLoggedIn" class="navbar">
+  <mat-icon class="logo-icon">account_balance</mat-icon>
+  <span class="app-title">Bank System</span>
+  <span class="spacer"></span>
+
+  <button
+    mat-button
+    routerLink="/dashboard"
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <mat-icon>dashboard</mat-icon> Dashboard
+  </button>
+  <button mat-button routerLink="/dashboard/transfer" routerLinkActive="active-link">
+    <mat-icon>send</mat-icon> Transfer
+  </button>
+  <button mat-button routerLink="/dashboard/transactions" routerLinkActive="active-link">
+    <mat-icon>history</mat-icon> History
+  </button>
+
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon> Logout</button>
+  </mat-menu>
+</mat-toolbar>
+
+<div [class.with-navbar]="isLoggedIn">
+  <router-outlet />
+</div>

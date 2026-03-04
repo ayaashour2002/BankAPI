@@ -1,0 +1,67 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px !important;
+  padding: 32px;
+}
+.auth-header {
+  text-align: center;
+  margin-bottom: 24px;
+  .bank-icon {
+    font-size: 52px;
+    width: 52px;
+    height: 52px;
+    color: #1a237e;
+  }
+  h1 {
+    margin: 8px 0 4px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a237e;
+  }
+  p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+  }
+}
+.full-width {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.submit-btn {
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+  border-radius: 8px !important;
+}
+.error-msg {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.auth-footer {
+  text-align: center;
+  padding-top: 16px;
+  p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+  }
+  a {
+    color: #1a237e;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

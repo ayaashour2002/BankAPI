@@ -1,0 +1,138 @@
+.dashboard-container {
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.welcome-banner {
+  background: linear-gradient(135deg, #1a237e, #3949ab);
+  border-radius: 16px;
+  padding: 28px 32px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  h2 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  p {
+    margin: 0;
+    opacity: 0.8;
+    font-size: 14px;
+  }
+  .total-balance {
+    text-align: right;
+    .label {
+      display: block;
+      font-size: 12px;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+    .amount {
+      font-size: 28px;
+      font-weight: 700;
+    }
+  }
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a237e;
+  margin: 0 0 16px;
+}
+
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.account-card {
+  border-radius: 12px !important;
+  border-left: 4px solid #1a237e;
+  .account-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a237e;
+    margin-bottom: 12px;
+  }
+  .account-type {
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .account-number {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  .account-balance {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 8px;
+  }
+  .account-date {
+    font-size: 12px;
+    color: #999;
+  }
+}
+
+.actions-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  button {
+    border-radius: 8px !important;
+    height: 44px;
+    font-weight: 600;
+  }
+}
+
+.transactions-card {
+  border-radius: 12px !important;
+}
+
+.tx-item {
+  border-bottom: 1px solid #f0f0f0;
+  height: 64px !important;
+}
+
+.tx-amount {
+  font-weight: 700;
+  font-size: 15px;
+}
+.in {
+  color: #2e7d32;
+}
+.out {
+  color: #c62828;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 32px;
+  color: #999;
+  mat-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+  }
+  p {
+    margin: 8px 0 0;
+  }
+}
+
+.loading-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
